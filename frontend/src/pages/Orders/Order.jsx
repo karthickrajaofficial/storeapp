@@ -156,7 +156,7 @@ const Order = () => {
           <p className="mb-4">
             <strong className="text-pink-500">Method:</strong> {order.paymentMethod}
           </p>
-          {!order.isPaid && (
+         
           <div>
             <button
               onClick={handleWhatsAppClick}
@@ -165,7 +165,7 @@ const Order = () => {
               Pay via WhatsApp
             </button>
           </div>
-        )}
+       
           <div className="mb-4">
           {order.isPaid ? (
               <Message variant="success">

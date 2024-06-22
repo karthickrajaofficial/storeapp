@@ -1,0 +1,76 @@
+/* Navigation.css */
+
+/* General hover effect for links */
+.nav-link:hover {
+  background-color: #ebebeb; /* Darker gray for hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  margin-top: 1rem;
+  margin-right: 2rem;
+  background-color: #ffffff;
+  color: #333333;
+  display: none; /* Initially hidden */
+  transition: all 0.3s ease; /* Smooth transition for visibility */
+  z-index: 100; /* Ensure it's above other elements */
+}
+
+.dropdown-menu.open {
+  display: block; /* Show when open */
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: #333333;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f3f3f3; /* Light gray background on hover */
+}
+
+/* User icon button */
+.user-icon-button {
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  display: flex;
+  align-items: center;
+}
+
+.user-icon-button:hover {
+  background-color: #ffffff; /* Darker gray for hover */
+}
+
+.user-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #ffffff; /* White color for icon */
+}
+
+.user-name {
+  margin-left: 0.5rem; /* Adjust spacing as needed */
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Position dropdown below the navigation bar by default */
+  left: 30;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 100;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu.dropdown-mobile {
+    top: auto;
+    bottom: 100%; /* Position dropdown above the navigation bar for mobile devices */
+  }
+}

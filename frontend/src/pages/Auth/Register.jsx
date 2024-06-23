@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader";
@@ -35,28 +35,32 @@ const Register = () => {
   
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
-    } else if (!email && !mobile) {
+      return;
+    }
+    
+    if (!email && !mobile) {
       toast.error("Please provide either an email address or a mobile number");
-    } else {
-      try {
-        const res = await register({ username, email, mobile, password }).unwrap();
-        dispatch(setCredentials({ ...res }));
-        navigate(redirect);
-        toast.success("User successfully registered");
-      } catch (err) {
-        console.log(err);
-        toast.error(err.data.message);
-      }
+      return;
+    }
+
+    try {
+      const res = await register({ username, email, mobile, password }).unwrap();
+      dispatch(setCredentials(res)); // Ensure `setCredentials` function properly reflects your state management logic
+      navigate(redirect);
+      toast.success("User successfully registered");
+    } catch (err) {
+      console.error("Registration Error:", err); // Log error for debugging
+      toast.error(err?.data?.message || "An error occurred. Please try again later.");
     }
   };
 
   return (
-    <section className="px-4 sm:px-10 flex flex-wrap">
-      <div className="mx-auto mt-10 sm:mt-20">
-        <h1 className="text-2xl font-semibold mb-4">Register</h1>
-        <form onSubmit={submitHandler} className="w-full sm:w-96">
-          <div className="my-4">
-            <label htmlFor="name" className="block text-sm font-medium text-white">Name</label>
+    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-pink-500 to-purple-500 animate-bg-gradient">
+      <div className="w-full max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+        <h1 className="text-2xl font-semibold text-center mb-4">Register</h1>
+        <form onSubmit={submitHandler} className="space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
             <input
               type="text"
               id="name"
@@ -64,10 +68,11 @@ const Register = () => {
               placeholder="Enter name"
               value={username}
               onChange={(e) => setName(e.target.value)}
+              required
             />
           </div>
-          <div className="my-4">
-            <label htmlFor="email" className="block text-sm font-medium text-white">Email Address</label>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
             <input
               type="email"
               id="email"
@@ -75,10 +80,11 @@ const Register = () => {
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
-          <div className="my-4">
-            <label htmlFor="mobile" className="block text-sm font-medium text-white">Mobile Number</label>
+          <div>
+            <label htmlFor="mobile" className="block text-sm font-medium text-gray-700">Mobile Number</label>
             <input
               type="tel"
               id="mobile"
@@ -86,10 +92,11 @@ const Register = () => {
               placeholder="Enter mobile number"
               value={mobile}
               onChange={(e) => setMobile(e.target.value)}
+              required
             />
           </div>
-          <div className="my-4">
-            <label htmlFor="password" className="block text-sm font-medium text-white">Password</label>
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
             <input
               type="password"
               id="password"
@@ -97,10 +104,11 @@ const Register = () => {
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
-          <div className="my-4">
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-white">Confirm Password</label>
+          <div>
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirm Password</label>
             <input
               type="password"
               id="confirmPassword"
@@ -108,27 +116,28 @@ const Register = () => {
               placeholder="Confirm password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              required
             />
           </div>
           <button
             disabled={isLoading}
             type="submit"
-            className="bg-pink-500 text-white px-4 py-2 rounded cursor-pointer my-4 w-full sm:w-auto"
+            className="bg-pink-600 text-white px-4 py-2 rounded w-full hover:shadow-lg transition-shadow duration-300"
           >
             {isLoading ? "Registering..." : "Register"}
           </button>
           {isLoading && <Loader />}
         </form>
-        <div className="mt-4">
-          <p className="text-white">
+        <div className="mt-4 text-center">
+          <p className="text-gray-700">
             Already have an account?{" "}
-            <Link to={redirect ? `/login?redirect=${redirect}` : "/login"} className="text-pink-500 hover:underline">
+            <Link to={redirect ? `/login?redirect=${redirect}` : "/login"} className="text-pink-700 hover:underline">
               Login
             </Link>
           </p>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

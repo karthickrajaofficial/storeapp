@@ -215,10 +215,10 @@ const requestPasswordReset = asyncHandler(async (req, res) => {
   await user.save();
 
   // Construct reset URL with fixed host and port
-  const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
+  const resetUrl = `https://jewelbyshree.shop/reset-password/${resetToken}`;
 
   // Example email message
-  const message = `You requested a password reset. Please make a PUT request to:\n\n${resetUrl}`;
+  const message = `You requested a password reset. Please click here request to:\n\n${resetUrl}`;
 
   try {
     // Send email (implementation of sendEmail function not shown)

@@ -9,7 +9,7 @@ function calcPrices(orderItems) {
   );
 
   // const shippingPrice = itemsPrice > 500 ? 0 : 10;
-  const shippingPrice = 90;
+  const shippingPrice = 69;
   // const taxRate = 0.18;
   // const taxPrice = (itemsPrice * taxRate).toFixed(2);
 

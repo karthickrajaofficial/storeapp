@@ -49,7 +49,7 @@ const Order = () => {
   }, [order, orderId]);
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = "919360988787"; // Replace with the recipient's phone number in international format
+    const phoneNumber = "919489608915"; // Replace with the recipient's phone number in international format
     const encodedMessage = encodeURIComponent(whatsappMessage);
 
     console.log(`Encoded WhatsApp Message: ${encodedMessage}`); // Debug log to check the message encoding
@@ -91,13 +91,8 @@ const Order = () => {
   ) : error ? (
     <Message variant="danger">{error.data.message}</Message>
   ) : (
-    <div className="container flex flex-col ml-[2rem] mt-[2rem] md:flex-row">
-      <Link
-        to="/placeorder"
-        className="text-pink-900 font-semibold hover:underline mb-10 mt-2"
-      >
-        ⬅️ Go Back
-      </Link>
+    <div className="container flex flex-col ml-[2rem] mt-[5rem] md:flex-row">
+    
       <div className="md:w-2/3 pr-4">
         <div className="border gray-300 mt-5 pb-4 mb-5">
           {order.orderItems.length === 0 ? (
@@ -107,10 +102,10 @@ const Order = () => {
               <table className="w-full md:w-[80%]">
                 <thead className="border-b-2">
                   <tr>
-                    <th className="p-2">Image</th>
-                    <th className="p-2">Product</th>
-                    <th className="p-2 text-center">Quantity</th>
-                    <th className="p-2">Total</th>
+                    <th className="p-1">Image</th>
+                    <th className="p-1">Product</th>
+                    <th className="p-1 text-center">Quantity</th>
+                    <th className="p-1">Total</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -137,6 +132,13 @@ const Order = () => {
             </div>
           )}
         </div>
+        <Link
+  to="/placeorder"
+  className="inline-block bg-pink-400 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg mb-10 mt-20"
+>
+  ⬅️ Go Back
+</Link>
+
       </div>
       <div className="md:w-1/3">
         <div className="mt-5 border-gray-300 pb-4 mb-4">

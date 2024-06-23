@@ -105,7 +105,7 @@ const Shop = () => {
         ))}
       </div>
       <h2 className="h4 text-center py-2 bg-black rounded-full mb-2">
-        Filter by Brands
+        Filter by PriceRange
       </h2>
       <div className="p-5">
         {uniqueBrands?.map((brand) => (

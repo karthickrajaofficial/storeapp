@@ -36,5 +36,6 @@ router
   .delete(authenticate, authorizeAdmin, removeProduct);
 
 router.route('/filtered-products').post(filterProducts)
+router.route('/products/filtered-products').post(filterProducts)
 
 export default router;

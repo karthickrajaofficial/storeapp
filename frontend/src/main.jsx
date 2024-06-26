@@ -32,16 +32,18 @@ import Order from "./pages/Orders/Order.jsx";
 import UserOrder from "./pages/User/UserOrder.jsx";
 import OrderList from "./pages/Admin/OrderList.jsx";
 import AdminDashboard from "./pages/Admin/AdminDashboard.jsx";
-
+import CategoryProducts from "./pages/CategoryProducts";
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
    <Route path="/" element={<App />}>
+    
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
     <Route index={true} path="/" element={<Home />} />
     <Route path="/favorite" element={<Favorites />}/> 
+    <Route path="/category/:id" element={<CategoryProducts />} />
     <Route path="/product/:id" element={<ProductDetails />}/> 
     <Route path="/cart" element={<Cart />}/> 
     <Route path="/shop" element={<Shop />}/> 

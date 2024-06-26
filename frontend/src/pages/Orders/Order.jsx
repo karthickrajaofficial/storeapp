@@ -93,7 +93,7 @@ const Order = () => {
   ) : (
     <div className="container flex flex-col  mt-[5rem] md:flex-row">
     
-      <div className="md:w-2/3">
+      <div className="md:w-2/3 ">
         <div className="border gray-300 mt-5 pb-4 mb-5">
           {order.orderItems.length === 0 ? (
             <Message>Order is empty</Message>
@@ -141,7 +141,7 @@ const Order = () => {
 
       </div>
       <div className="md:w-1/3">
-        <div className="mt-5 border-gray-300 pb-4 mb-4">
+        <div className="mt-5 border-gray-300 pb-4 mb-4 mx-5">
           <h2 className="text-xl font-bold mb-2">Shipping</h2>
           <p className="mb-4 mt-4">
             <strong className="text-pink-500">Order:</strong> {order._id}
@@ -187,16 +187,16 @@ const Order = () => {
             )}
           </div>
         </div>
-        <h2 className="text-xl font-bold mb-2 mt-[3rem]">Order Summary</h2>
-        <div className="flex justify-between mb-2">
+        <h2 className="text-xl font-bold mb-2 mt-[3rem] mx-5">Order Summary</h2>
+        <div className="flex justify-between mb-2 mx-5">
           <span>Items</span>
           <span>₹ {order.itemsPrice}</span>
         </div>
-        <div className="flex justify-between mb-2">
+        <div className="flex justify-between mb-2 mx-5">
           <span>Shipping</span>
           <span>₹ {order.shippingPrice}</span>
         </div>
-        <div className="flex justify-between mb-2">
+        <div className="flex justify-between mb-2 mx-5">
           <span>Total</span>
           <span>₹ {order.totalPrice}</span>
         </div>

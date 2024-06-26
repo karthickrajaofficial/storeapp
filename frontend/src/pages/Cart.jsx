@@ -89,8 +89,8 @@ const Cart = () => {
                   <Link to={`/product/${item._id}`} className="text-pink-500">
                     {item.name}{" "}
                   </Link>
-                  <div className="mt-2 text-white">{item.brand}</div>
-                  <div className="mt-2 text-white">₹ {item.price}</div>
+                  {/* <div className="mt-2 text-white">{item.brand}</div> */}
+                  <div className="mt-2 text-black">₹ {item.price}</div>
                 </div>
                 <div className="w-[8rem]  md:w-[10rem] ">
                   <select

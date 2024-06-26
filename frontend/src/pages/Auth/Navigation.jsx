@@ -125,7 +125,7 @@ const Navigation = () => {
             <div className="mr-2 flex items-center">
               <button className="user-icon-button flex items-center" onClick={() => setDropdownOpen(!dropdownOpen)}>
                 <AiOutlineUser style={{ color: "pink-600", fontSize: "24px" }} />
-                <span className="ml-2 text-pink-600">{userInfo.username}</span>
+                {/* <span className="ml-2 text-pink-600">{userInfo.username}</span> */}
               </button>
             </div>
           )}
